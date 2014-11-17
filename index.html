@@ -10,10 +10,15 @@
   </head>
   <body>
     <div class="container">
+      <h2>Usage examples</h2>
       <form class="form-horizontal" role="form">
         <div class="form-group">
           <label for="name" class="control-label">Name*:</label>
           <input type="text" name="name" class="form-control" data-bind="value: name, valueUpdate: 'afterkeydown', validationTooltip: name" />
+        </div>
+        <div class="form-group">
+          <label for="password" class="control-label">Password*:</label>
+          <input type="password" name="password" class="form-control" data-placement="bottom" data-bind="value: password, valueUpdate: 'afterkeydown', validationTooltip: password" />
         </div>
       </form>
     </div>
@@ -25,8 +30,10 @@
         
         var viewModel = {
           name: ko.observable().extend({ 
-           required: true,
            minLength: 3
+          }),
+          password: ko.observable().extend({
+            required: true
           })
         };
         
