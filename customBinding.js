@@ -6,7 +6,11 @@
 				var field = valueAccessor();
 				if (field.isModified() && !field.isValid()) {
 					el.parents(".form-group").addClass("has-error");
-					el.tooltip({ title: field.error }).tooltip("show");
+					var options = {
+						title: field.error,
+						placement: $(element).data('placement')||'top'
+					}
+					el.tooltip(options).tooltip("show");
 				}
 				else {
 					el.parents(".form-group").removeClass("has-error");
